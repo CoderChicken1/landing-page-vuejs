@@ -19,6 +19,7 @@
                 outlined
                 background-color="white"
                 flat
+                class="rounded-xl"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6">
@@ -26,6 +27,7 @@
                 label="Subject"
                 outlined
                 background-color="white"
+                class="rounded-xl"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -34,6 +36,7 @@
             label="Your Message"
             background-color="white"
             height="200px"
+            class="rounded-xl"
           ></v-textarea>
           <div class="footer-contact d-flex space-between">
             <v-btn
@@ -44,7 +47,7 @@
               color="orange"
               >Hire Us</v-btn
             >
-            
+
             <v-card-text class="d-flex justify-end pa-0">
               <v-btn
                 v-for="(icon, i) in items"
@@ -52,7 +55,7 @@
                 class="mx-2 white--text"
                 icon
               >
-                <v-icon size="24px">{{ icon }}</v-icon>
+                <v-icon size="24px" :color="icon.color">{{ icon.icon }}</v-icon>
               </v-btn>
             </v-card-text>
           </div>
@@ -67,11 +70,11 @@ export default {
   name: "ContactSection",
   data: () => ({
     items: [
-      "mdi-facebook",
-      "mdi-twitter",
-      "mdi-teamviewer",
-      "mdi-instagram",
-      "mdi-email-outline",
+      { icon: "mdi-facebook", color: "facebook" },
+      { icon: "mdi-twitter", color: "twitter" },
+      { icon: "mdi-google-plus", color: "google" },
+      { icon: "mdi-instagram", color: "instagram" },
+      { icon: "mdi-email-outline", color: "email" },
     ],
   }),
 };

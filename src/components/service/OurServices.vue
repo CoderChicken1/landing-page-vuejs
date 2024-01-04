@@ -1,11 +1,9 @@
 <template>
-  <v-container fluid id="features" class="my-15 py-15 px-10">
+  <v-container id="services" class="my-15 py-15 px-10">
     <v-row align="center" justify="center">
       <v-col cols="10">
-        <v-row align="center" justify="space-around">
+        <v-row justify="center">
           <v-col
-            xl="3"
-            lg="3"
             md="3"
             sm="6"
             xs="12"
@@ -14,7 +12,7 @@
             :key="i"
           >
             <v-card class="card" flat>
-              <div class="flex-center">
+              <div class="flex-center mb-4">
                 <div class="circle1">
                   <v-img
                     :src="feature.img"
@@ -23,10 +21,12 @@
                   ></v-img>
                 </div>
               </div>
-              <h1 class="font-weight-regular">{{ feature.title }}</h1>
-              <h4 class="font-weight-regular subtitle-1">
-                {{ feature.text }}
-              </h4>
+              <div class="content-service">
+                <h1 class="font-weight-regular">{{ feature.title }}</h1>
+                <p class="font-weight-regular subtitle-1">
+                  {{ feature.text }}
+                </p>
+              </div>
             </v-card>
           </v-col>
         </v-row>
@@ -43,22 +43,22 @@ export default {
       {
         img: require("@/assets/print-icon.png"),
         title: "Print Design",
-        text: "Everywhere your brand lives, through every touch point, our team works with you to create beautifully crafted  print design solutions.",
+        text: "Our print design services are a testament to timeless elegance and effective communication.",
       },
       {
         img: require("@/assets/pc-icon.png"),
         title: "Web Design",
-        text: "Everywhere your brand lives, through every touch point, our team works with you to create beautifully crafted  print design solutions.",
+        text: "In the ever-evolving digital landscape, our web design expertise shines through creating user-centric",
       },
       {
         img: require("@/assets/app-icon.png"),
         title: "App Design",
-        text: "Everywhere your brand lives, through every touch point, our team works with you to create beautifully crafted  print design solutions.",
+        text: "Mobile applications are powerful tools for connecting with your audience. Our app design team excels in crafting",
       },
       {
         img: require("@/assets/logo-icon.png"),
         title: "Logo Design",
-        text: "Everywhere your brand lives, through every touch point, our team works with you to create beautifully crafted  print design solutions.",
+        text: "Your logo is the face of your brand, and we understand its significance. Our logo design process is a blend of creativity",
       },
     ],
   }),
@@ -90,5 +90,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.content-service {
+  text-align: center; /* Center-align the content */
+}
+
+.content-service h1 {
+  margin-bottom: 8px; /* Adjust the margin as needed */
+}
+
+.content-service p {
+  margin: 0; 
 }
 </style>
