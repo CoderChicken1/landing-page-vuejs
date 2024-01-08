@@ -16,6 +16,7 @@ export default new Vuetify({
                 instagram: "#f18423" ,
                 email: "#19acb3"  ,
                 google: "#ff3921",
+                appbar: "#24282c",
             }
         }
     }

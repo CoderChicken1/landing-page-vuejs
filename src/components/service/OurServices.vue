@@ -1,35 +1,31 @@
 <template>
   <v-container id="services" class="my-15 py-15 px-10">
     <v-row align="center" justify="center">
-      <v-col cols="10">
-        <v-row justify="center">
-          <v-col
-            md="3"
-            sm="6"
-            xs="12"
-            class="text-center"
-            v-for="(feature, i) in features"
-            :key="i"
-          >
-            <v-card class="card" flat>
-              <div class="flex-center mb-4">
-                <div class="circle1">
-                  <v-img
-                    :src="feature.img"
-                    max-height="50px"
-                    max-width="30px"
-                  ></v-img>
-                </div>
-              </div>
-              <div class="content-service">
-                <h1 class="font-weight-regular">{{ feature.title }}</h1>
-                <p class="font-weight-regular subtitle-1">
-                  {{ feature.text }}
-                </p>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
+      <v-col
+        md="3"
+        cols="12"
+        class="text-center"
+        v-for="(feature, i) in features"
+        :key="i"
+      >
+        <v-row align="center"> </v-row>
+        <v-card flat>
+          <div class="flex-center mb-4">
+            <div class="circle1">
+              <v-img
+                :src="feature.img"
+                max-height="50px"
+                max-width="30px"
+              ></v-img>
+            </div>
+          </div>
+          <v-card flat class="content-service" height="180">
+            <h1 class="font-weight-regular">{{ feature.title }}</h1>
+            <p class="font-weight-regular subtitle-1 over-hidden">
+              {{ feature.text }}
+            </p>
+          </v-card>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -75,31 +71,21 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.circle2 {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.circle2 .img-cover {
-  object-fit: cover;
-}
+
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .content-service {
-  text-align: center; /* Center-align the content */
+  text-align: center;
 }
 
 .content-service h1 {
-  margin-bottom: 8px; /* Adjust the margin as needed */
+  margin-bottom: 8px;
 }
 
 .content-service p {
-  margin: 0; 
+  margin: 0;
 }
 </style>
