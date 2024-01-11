@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-
+import { createSimpleTransition } from 'vuetify/lib/components/transitions/createTransition'
+const fadeTransition = createSimpleTransition('v-fade-transition')
+Vue.component('v-fade-transition', fadeTransition)
 Vue.use(Vuetify);
 
 export default new Vuetify({

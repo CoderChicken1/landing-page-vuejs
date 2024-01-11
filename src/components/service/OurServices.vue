@@ -14,14 +14,14 @@
             <div class="circle1">
               <v-img
                 :src="feature.img"
-                max-height="50px"
-                max-width="30px"
+                :max-height="i === 0 ? '50px' : i === 1 ? '100px' : '50px'"
+                :max-width="i === 0 ? '40px' : i === 1 ? '50px' : '30px'"
               ></v-img>
             </div>
           </div>
-          <v-card flat class="content-service" height="180">
-            <h1 class="font-weight-regular">{{ feature.title }}</h1>
-            <p class="font-weight-regular subtitle-1 over-hidden">
+          <v-card flat height="180">
+            <h1 class="font-weight-regular mb-2">{{ feature.title }}</h1>
+            <p class="font-weight-regular subtitle-1 overflow-hidden ma-0">
               {{ feature.text }}
             </p>
           </v-card>
@@ -37,22 +37,22 @@ export default {
   data: () => ({
     features: [
       {
-        img: require("@/assets/print-icon.png"),
+        img: require("@/assets/print-1.png"),
         title: "Print Design",
         text: "Our print design services are a testament to timeless elegance and effective communication.",
       },
       {
-        img: require("@/assets/pc-icon.png"),
+        img: require("@/assets/web-1.png"),
         title: "Web Design",
         text: "In the ever-evolving digital landscape, our web design expertise shines through creating user-centric",
       },
       {
-        img: require("@/assets/app-icon.png"),
+        img: require("@/assets/app-1.png"),
         title: "App Design",
         text: "Mobile applications are powerful tools for connecting with your audience. Our app design team excels in crafting",
       },
       {
-        img: require("@/assets/logo-icon.png"),
+        img: require("@/assets/logo-1.png"),
         title: "Logo Design",
         text: "Your logo is the face of your brand, and we understand its significance. Our logo design process is a blend of creativity",
       },
@@ -71,21 +71,10 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.content-service {
-  text-align: center;
-}
 
-.content-service h1 {
-  margin-bottom: 8px;
-}
-
-.content-service p {
-  margin: 0;
-}
 </style>

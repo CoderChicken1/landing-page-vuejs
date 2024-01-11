@@ -45,7 +45,7 @@
         </v-container>
       </div>
     </v-navigation-drawer>
-    <v-app-bar app dark class="px-16" flat :color="bg">
+    <v-app-bar app dark class="px-16 hidden-xs-only" flat :color="bg">
       <v-toolbar-title>
         <v-img src="@/assets/logo-nav.png" width="auto" />
       </v-toolbar-title>
@@ -89,10 +89,7 @@ export default {
       },
     ],
   }),
-  props: {
-    color: String,
-  },
-    mounted() {
+  mounted() {
     window.onscroll = () => {
       this.changeColor();
     };
@@ -100,11 +97,9 @@ export default {
   methods: {
     menu() {
       this.drawer = !this.drawer;
-      this.overlay = !this.overlay;
     },
     close() {
       this.drawer = !this.drawer;
-      this.overlay = false;
     },
     navClick(item) {
       this.drawer = !this.drawer;
@@ -112,17 +107,15 @@ export default {
     },
     changeColor() {
       if (
-        document.body.scrollTop > 60 ||
-        document.documentElement.scrollTop > 60
+        document.body.scrollTop > 580 ||
+        document.documentElement.scrollTop > 580
       ) {
-        
-        this.bg = "appbar";
+        this.bg = "rgba(31, 30, 32)";
       } else {
         this.bg = "transparent";
       }
     },
   },
-
 };
 </script>
 
@@ -147,6 +140,5 @@ export default {
   bottom: 0;
   overflow-y: auto;
 }
-@media screen {
-}
+
 </style>

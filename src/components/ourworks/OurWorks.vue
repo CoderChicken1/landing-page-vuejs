@@ -51,22 +51,19 @@
                           <div :class="{ bgHover: hover }">
                             <div
                               v-if="hover"
-                              class="d-flex justify-center align-center transition-fast-in-fast-out v-card--reveal white--text"
+                              class="d-flex justify-center align-center transition-fast-in-fast-out white--text v-card--reveal"
                               style="height: 100%"
                             >
-                              <v-row
-                                cols="10"
-                                justify="center"
-                                align="center"
-                                class="hidden-xs-only"
-                              >
+                              <v-row cols="10" justify="center" align="center">
                                 <v-col
                                   class="d-flex flex-column justify-center align-center"
                                 >
-                                  <h1 class="title text-uppercase text-center">
+                                  <h1
+                                    class="title text-uppercase text-center hidden-xs-only"
+                                  >
                                     abazoo websites
                                   </h1>
-                                  <p class="body-2 text-center">
+                                  <p class="body-2 text-center hidden-xs-only">
                                     Connect with friends, family, and colleagues
                                     seamlessly. Share updates, photos, and
                                     memories effortlessly
@@ -74,6 +71,7 @@
                                   <v-btn
                                     elevation="2"
                                     color="white"
+                                    :x-small=$vuetify.breakpoint.xs
                                     class="button-hover"
                                     @click="redirectToExternalURL"
                                     >show project</v-btn
@@ -103,7 +101,8 @@
                 outlined
                 large
                 text
-                class="mx-auto my-12 d-flex px-10"
+                active-class="btn-more-active"
+                class="mx-auto my-12 d-flex px-10 btn-more"
                 @click="toggleShowMore"
                 >{{ showMore ? "Show Less" : "Show More" }}</v-btn
               >
@@ -171,6 +170,34 @@ export default {
 }
 .button-hover {
   color: #f7600e;
+}
+.btn-more >>> .v-btn__content{
+ color: #f7600e;
+} 
+.btn-more:hover >>> .v-btn__content{
+  color: white;
+}
+.btn-more{
+  --c:  #f7600e;
+   box-shadow: 0 0 0 .1em inset var(--c); 
+   --_g: linear-gradient(var(--c) 0 0) no-repeat;
+   background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.btn-more:hover{
+    --_p: 100%;
+  transition: background-position .4s, background-size 0s;  
+}
+.btn-more-active{
+    box-shadow: 0 0 9e9q inset #0009; 
+  background-color: var(--c);
+ 
 }
 @media screen and (max-width: 600px) {
   .display-2 {

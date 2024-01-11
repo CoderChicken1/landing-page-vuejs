@@ -7,7 +7,7 @@
             label="Enter Your email address for newsletter"
             outlined
             background-color="white"
-            class="rounded-lg"
+            class="my-textfield rounded-lg "
             single-line
             hide-details
           ></v-text-field>
@@ -51,16 +51,7 @@ export default {
 .bg {
   background-image: url("~@/assets/bgLetter.png");
 }
-.text-field {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.btn-letter {
-  padding: 0 60px !important;
-}
-@media (max-width: 600px) {
-  .btn-letter {
-    padding: 20px !important;
-  }
+.v-text-field >>> .v-input__control {
+  color: #f7600e ;
 }
 </style>
