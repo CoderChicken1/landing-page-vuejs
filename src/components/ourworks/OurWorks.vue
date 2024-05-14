@@ -25,83 +25,13 @@
                   class="d-flex child-flex"
                   cols="4"
                 >
-                  <!-- @click.stop="
-                          (dialog = true), (id = index), (imgSrc = image.imgSrc)
-                        "   them vao v-img o duoi de hien thi dialog-->
-                  <v-hover v-slot="{ hover }">
-                    <v-card flat class="d-flex" rounded>
-                      <v-img
-                        :src="image.imgSrc"
-                        aspect-ratio="1"
-                        class="grey lighten-2"
-                      >
-                        <!-- <template v-slot:placeholder>
-                          <v-row
-                            class="fill-height ma-0"
-                            align="center"
-                            justify="center"
-                          >
-                            <v-progress-circular
-                              indeterminate
-                              color="grey lighten-5"
-                            ></v-progress-circular>
-                          </v-row>
-                        </template> -->
-                        <v-expand-transition>
-                          <div :class="{ bgHover: hover }">
-                            <div
-                              v-if="hover"
-                              class="d-flex justify-center align-center transition-fast-in-fast-out white--text v-card--reveal"
-                              style="height: 100%"
-                            >
-                              <v-row cols="10" justify="center" align="center">
-                                <v-col
-                                  class="d-flex flex-column justify-center align-center"
-                                >
-                                  <h1
-                                    class="title text-uppercase text-center hidden-xs-only"
-                                  >
-                                    abazoo websites
-                                  </h1>
-                                  <p class="body-2 text-center hidden-xs-only">
-                                    Connect with friends, family, and colleagues
-                                    seamlessly. Share updates, photos, and
-                                    memories effortlessly
-                                  </p>
-                                  <v-btn
-                                    elevation="2"
-                                    color="white"
-                                    :x-small=$vuetify.breakpoint.xs
-                                    class="button-hover"
-                                    @click="redirectToExternalURL"
-                                    >show project</v-btn
-                                  >
-                                </v-col>
-                              </v-row>
-                            </div>
-                          </div>
-                        </v-expand-transition>
-                      </v-img>
-                    </v-card>
-                  </v-hover>
+                  <ItemWorks :img="image.imgSrc" />
                 </v-col>
-                <!-- <v-dialog v-model="dialog" max-width="500" isDark="">
-                  <v-card>
-                    <v-img :src="imgSrc" max-width="500" height="auto"></v-img>
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-                      <v-btn @click="dialog = false" color="red darken-1" text>
-                        Close
-                      </v-btn>
-                    </v-card-actions>
-                  </v-card>
-                </v-dialog> -->
               </v-row>
               <v-btn
                 outlined
                 large
                 text
-                active-class="btn-more-active"
                 class="mx-auto my-12 d-flex px-10 btn-more"
                 @click="toggleShowMore"
                 >{{ showMore ? "Show Less" : "Show More" }}</v-btn
@@ -115,8 +45,12 @@
 </template>
 
 <script>
+import ItemWorks from "./ItemWorks.vue";
 export default {
   name: "OurWorks",
+  components: {
+    ItemWorks,
+  },
   data: () => ({
     dialog: false,
     imgSrc: "",
@@ -171,34 +105,10 @@ export default {
 .button-hover {
   color: #f7600e;
 }
-.btn-more >>> .v-btn__content{
- color: #f7600e;
-} 
-.btn-more:hover >>> .v-btn__content{
-  color: white;
+.btn-more >>> .v-btn__content {
+  color: #f7600e;
 }
-.btn-more{
-  --c:  #f7600e;
-   box-shadow: 0 0 0 .1em inset var(--c); 
-   --_g: linear-gradient(var(--c) 0 0) no-repeat;
-   background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-.btn-more:hover{
-    --_p: 100%;
-  transition: background-position .4s, background-size 0s;  
-}
-.btn-more-active{
-    box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
- 
-}
+
 @media screen and (max-width: 600px) {
   .display-2 {
     font-size: 1.8rem !important;

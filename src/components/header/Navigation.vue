@@ -45,12 +45,12 @@
         </v-container>
       </div>
     </v-navigation-drawer>
-    <v-app-bar app dark class="px-16 hidden-xs-only" flat :color="bg">
+    <v-app-bar app class="px-16 hidden-xs-only" flat :color="color">
       <v-toolbar-title>
         <v-img src="@/assets/logo-nav.png" width="auto" />
       </v-toolbar-title>
       <v-spacer />
-      <v-app-bar-nav-icon @click.stop="menu()" class="mx-xs-0" />
+      <v-app-bar-nav-icon  @click.stop="menu()" class="mx-xs-0" />
     </v-app-bar>
   </div>
 </template>
@@ -89,10 +89,8 @@ export default {
       },
     ],
   }),
-  mounted() {
-    window.onscroll = () => {
-      this.changeColor();
-    };
+  props: {
+    color: String,
   },
   methods: {
     menu() {
@@ -105,21 +103,15 @@ export default {
       this.drawer = !this.drawer;
       this.$vuetify.goTo(item.link);
     },
-    changeColor() {
-      if (
-        document.body.scrollTop > 580 ||
-        document.documentElement.scrollTop > 580
-      ) {
-        this.bg = "rgba(31, 30, 32)";
-      } else {
-        this.bg = "transparent";
-      }
-    },
+    
   },
 };
 </script>
 
 <style scoped>
+.v-btn > .v-btn__content .v-icon{
+  color: white;
+}
 .divider-nav {
   border: 1px solid rgb(211, 79, 3) !important;
 }
@@ -140,5 +132,4 @@ export default {
   bottom: 0;
   overflow-y: auto;
 }
-
 </style>

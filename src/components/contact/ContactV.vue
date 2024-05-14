@@ -1,6 +1,6 @@
 <template>
   <section class="pb-xs-8 pb-sm-4" id="contact">
-    <v-container class="px-sm-16 mb-sm-16">
+    <v-container class="px-sm-16 mb-sm-16 content-contact">
       <v-row class="py-sm-15" align="center" justify="center">
         <v-col cols="6" xs="10">
           <h1
@@ -23,9 +23,8 @@
                 outlined
                 background-color="white"
                 flat
-               dense
-                single-line
-                append-icon="mdi-email-heart-outline"
+                dense
+                placeholder="text"
                 class="rounded-lg text-field-left"
               ></v-text-field>
             </v-col>
@@ -35,7 +34,6 @@
                 outlined
                 dense
                 background-color="white"
-                append-icon="mdi-book-outline"
                 single-line
                 class="rounded-lg text-field-right"
               ></v-text-field>
@@ -49,11 +47,11 @@
             single-line
             class="rounded-lg text-area"
           ></v-textarea>
-          <v-row  align="center">
-            <v-col cols="6" >
+          <v-row align="center">
+            <v-col cols="6">
               <v-btn
                 large
-                class="px-10 white--text rounded-lg glow-on-hover "
+                class="px-10 white--text rounded-lg glow-on-hover"
                 width="170"
                 color="orange"
                 >Hire Us</v-btn
@@ -63,7 +61,7 @@
               <v-btn
                 v-for="(icon, i) in items"
                 :key="i"
-                class="mx-1 white--text "
+                class="mx-1 white--text"
                 icon
               >
                 <v-icon size="28" :color="icon.color">{{ icon.icon }}</v-icon>
@@ -98,65 +96,95 @@ export default {
 #contact {
   background-image: url("~@/assets/bgContact.png");
   object-fit: fill;
+  position: relative;
+}
+#contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 67, 76, 0.8);
+}
+.content-contact {
+  position: relative;
 }
 .glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
 .glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 .glow-on-hover:active {
-    color: #000
+  color: #000;
 }
 
 .glow-on-hover:active:after {
-    background: transparent;
+  background: transparent;
 }
 
 .glow-on-hover:hover:before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #f7600e;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f7600e;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 @media screen and (max-width: 600px) {
   .display-2 {
@@ -166,20 +194,20 @@ export default {
     font-size: 0.8rem !important;
   }
 }
-.text-field-left>>> .v-input__control{
-color: #f7600e;
+.text-field-left >>> .v-input__control {
+  color: #f7600e;
 }
 
-.text-field-left>>> .v-input__icon.v-input__icon--append i {
+.text-field-left >>> .v-input__icon.v-input__icon--append i {
   font-size: 32px;
 }
-.text-field-right>>> .v-input__icon.v-input__icon--append i {
+.text-field-right >>> .v-input__icon.v-input__icon--append i {
   font-size: 32px;
 }
-.text-field-right>>> .v-input__control{
-color: #f7600e;
+.text-field-right >>> .v-input__control {
+  color: #f7600e;
 }
-.text-area >>> .v-input__control{
+.text-area >>> .v-input__control {
   color: #f7600e;
 }
 </style>

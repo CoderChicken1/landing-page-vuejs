@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-import { createSimpleTransition } from 'vuetify/lib/components/transitions/createTransition'
-const fadeTransition = createSimpleTransition('v-fade-transition')
-Vue.component('v-fade-transition', fadeTransition)
+// import '@mdi/font/css/materialdesignicons.css'; yarn add 
+import '../css/font.css'; // import local
+import '../css/materialdesignicons.min.css'
 Vue.use(Vuetify);
 
 export default new Vuetify({
@@ -21,5 +21,8 @@ export default new Vuetify({
                 appbar: "#24282c",
             }
         }
-    }
+    },
+    // icons: {
+    //     iconfont: 'mdi', // default - only for display purposes
+    //   },
 });

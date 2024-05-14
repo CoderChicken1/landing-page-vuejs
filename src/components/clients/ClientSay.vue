@@ -1,6 +1,6 @@
 <template>
-  <section id="clientsay" class="bgClient">
-  <v-container >
+  <section id="clientsay">
+  <v-container class="content-clientsay">
       <v-sheet
         class="mt-5 mx-auto"
         outlined
@@ -8,7 +8,7 @@
         color="transparent"
         width="80%"
       >
-        <v-window show-arrows >
+        <!-- <v-window show-arrows >
           <template v-slot:prev="{ on, attrs }">
             <v-btn icon tile depressed plain v-bind="attrs" v-on="on"
               ><v-icon size="42" color="grey">mdi-chevron-left</v-icon></v-btn
@@ -36,7 +36,26 @@
           </v-col>
           </v-row>
           </v-window-item>
-        </v-window>
+        </v-window> -->
+        <v-carousel show-arrows-on-hover hide-delimiters height="240" interval="4000" cycle>
+          <v-carousel-item v-for="(slide, i) in slides" :key="i" >
+          <v-row justify="center" align="center">
+          <v-col cols="10" sm="8">
+            <v-card color="transparent" flat >
+              <v-avatar size="72" class="mx-auto d-flex justify-center">
+                <img :src="slide.image" alt="John" />
+              </v-avatar>
+              <v-card-title class="font-italic text-subtitle-1 px-10 text-center white--text">
+                {{ slide.text }}
+              </v-card-title>
+              <v-card-text class="text-title text-center white--text">
+                {{ slide.name }}
+              </v-card-text>
+            </v-card>
+          </v-col>
+          </v-row>
+          </v-carousel-item>
+        </v-carousel>
       </v-sheet>
    </v-container>
   </section>
@@ -68,13 +87,28 @@ export default {
         text: "I love sharing my art, connecting with fellow artists, and exploring diverse content. It truly fosters a sense of community.",
       },
     ],
+    
   }),
+
 };
 </script>
 
 <style scoped>
-.bgClient {
+#clientsay {
   background-image: url("~@/assets/bgClient.png");
+  position: relative;
+}
+#clientsay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 67, 76, 0.8);
+}
+.content-clientsay{
+  position: relative;
 }
 @media screen and (max-width: 600px) {
   .v-container {

@@ -9,31 +9,24 @@
         :key="i"
       >
         <v-row align="center"> </v-row>
-        <v-card flat>
-          <div class="flex-center mb-4">
-            <div class="circle1">
-              <v-img
-                :src="feature.img"
-                :max-height="i === 0 ? '50px' : i === 1 ? '100px' : '50px'"
-                :max-width="i === 0 ? '40px' : i === 1 ? '50px' : '30px'"
-              ></v-img>
-            </div>
-          </div>
-          <v-card flat height="180">
-            <h1 class="font-weight-regular mb-2">{{ feature.title }}</h1>
-            <p class="font-weight-regular subtitle-1 overflow-hidden ma-0">
-              {{ feature.text }}
-            </p>
-          </v-card>
-        </v-card>
+        <ServiceItem
+          :img="feature.img"
+          :title="feature.title"
+          :text="feature.text"
+        />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import ServiceItem from "./ServiceItem.vue";
 export default {
   name: "OurService",
+  components: {
+    ServiceItem,
+  },
+
   data: () => ({
     features: [
       {
@@ -62,19 +55,4 @@ export default {
 </script>
 
 <style scoped>
-.circle1 {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  border: 1px solid grey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 </style>

@@ -1,7 +1,7 @@
 <template>
   <section id="ourteam" class="my-15">
     <v-container>
-      <v-row cols="10" justify="center" align="center" >
+      <v-row cols="10" justify="center" align="center">
         <v-col cols="6" class="d-sm-flex flex-column justify-center">
           <h1 class="display-2 font-weight-bold mb-4 text-center">
             OUR <span class="color-title">TEAM</span>
@@ -18,30 +18,39 @@
         <v-col cols="10" class="text-center">
           <v-item-group v-model="group" mandatory>
             <v-row class="mb-md-4">
-              <v-col class="d-md-flex justify-center" >
+              <v-col class="d-md-flex justify-center">
                 <v-item
                   v-slot="{ active, toggle }"
                   v-for="(team, i) in teams"
                   :key="i"
                   class="mx-auto"
                 >
-                  <v-card
+                  <TeamItem
+                    :img="team.img"
+                    :title="team.title"
+                    :text="team.text"
+                    :items="items"
+                    :active="active"
+                    @click="toggle"
+                    @mouseover="toggle"
+                  />
+                  <!-- <v-card
                     class="card pt-12"
                     flat
                     :ripple="false"
-                    :class="{ grayscale: !active }"
+                    :class="{ grayscale: !active  }"
                     @click="toggle"
-                  > 
-                  <v-container>
-                    <v-img
-                      :src="team.img"    
-                      max-width="160px"                
-                      class="mb-0 mx-auto teamImage"
-                      :class="{'image-border': active ,'zoomefect': active}"
-                    ></v-img>
-                    <v-divider v-show="active"
-                   ></v-divider>
-                  </v-container>
+                    @mouseover="toggle"
+                  >
+                    <v-container>
+                      <v-img
+                        :src="team.img"
+                        max-width="160px"
+                        class="mb-0 mx-auto teamImage"
+                        :class="{ 'image-border': active, zoomefect: active }"
+                      ></v-img>
+                      <v-divider v-show="active"></v-divider>
+                    </v-container>
                     <v-card-text
                       class="title font-weight-bold text-uppercase"
                       :class="{ 'black--text': active }"
@@ -61,12 +70,12 @@
                       </v-btn>
                     </v-card-text>
                     <v-card-text
-                      class="d-flex justify-center body-2 font-weight-regular text-center ma-1 px-4 "
+                      class="d-flex justify-center body-2 font-weight-regular text-center ma-1 px-4"
                       :class="{ 'black--text': active }"
                     >
                       {{ team.text }}
                     </v-card-text>
-                  </v-card>
+                  </v-card> -->
                 </v-item>
               </v-col>
             </v-row>
@@ -106,8 +115,12 @@
 </template>
 
 <script>
+import TeamItem from "./TeamItem.vue";
 export default {
   name: "OurTeam",
+  components: {
+    TeamItem,
+  },
   data: () => ({
     group: null,
     items: [
@@ -143,11 +156,7 @@ export default {
     ],
   }),
   methods: {},
-  watch: {
-    group(val) {
-      console.log("New value of group:", val);
-    },
-  },
+  watch: {},
 };
 </script>
 
@@ -172,15 +181,15 @@ export default {
 .card h1 {
   margin-bottom: 10px;
 }
-.teamImage{
+.teamImage {
   position: relative;
 }
-.v-divider{
+.v-divider {
   position: absolute;
   width: 180px;
   border-width: 2px;
   border-color: #f7600e;
-    left: 0;
+  left: 0;
   right: 0;
   margin: 0 auto;
 }
@@ -202,6 +211,5 @@ export default {
   .display-2 {
     font-size: 2rem !important;
   }
-
 }
 </style>

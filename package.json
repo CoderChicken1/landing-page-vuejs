@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^2.6.14",
+    "vue-router": "^4.3.0",
     "vuetify": "^2.6.0"
   },
   "devDependencies": {
@@ -39,9 +40,18 @@
       "parser": "@babel/eslint-parser"
     },
     "rules": {
-      "vue/no-unused-vars": ["error", {
-        "ignorePattern": "^_"
-    }]
+      "vue/no-unused-vars": [
+        "error",
+        {
+          "ignorePattern": "^_"
+        }
+      ],
+      "vue/no-unused-components": [
+        "error",
+        {
+          "ignoreWhenBindingPresent": true
+        }
+      ]
     }
   },
   "browserslist": [
